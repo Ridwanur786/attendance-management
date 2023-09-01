@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('role')->nullable();
             $table->string('password')->nullable();
             $table->string('class')->nullable();
-            $table->json('attendance')->nullable();
+            $table->json('attendance')->nullable()->default('{}');
             $table->timestamps();
         });
     }

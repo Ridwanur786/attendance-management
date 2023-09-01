@@ -8,6 +8,13 @@ use Illuminate\Contracts\Validation\ValidationRule;
 
 class AttendanceValidationRules implements ValidationRule
 {
+protected $class;
+
+
+public function __construct($class){
+    $this->class= $class;
+   
+}
     /**
      * Run the validation rule.
      *
@@ -15,28 +22,41 @@ class AttendanceValidationRules implements ValidationRule
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        //validation logic for attendance value ['present' or 'absent']
-
-        $attendance = ['present', 'absent'];
-
-        if(!is_array($value)){
-            $fail("the :attribute Must be an array");
-        }
-            if (!in_array($value, $attendance)) {
-                $fail('The :attribute contains only "present" or "absent" values');
-            }
        
-        $studentCount = count(Students::all());
-        if($value !== $studentCount){
-            $fail('The :attribute contains the attendance of all students');
-        }
+        $students = Students::where('class', $this->class)->get();
+        $totalStudents = count($students);
+        $jsonString = json_encode($value);
+         $isValid = json_validate($jsonString);
+        //$attendance = json_decode($jsonString);
 
-        if(empty($value)){
-            $fail('the :attribute must not be empty field');
+        // // foreach ($attendance as $studentId => $value) {
+        // //     echo "Student ID: $studentId, Value: $value<br>";
+        // // }
+        if($isValid){
+             $attendance = json_decode($jsonString, true);
+            // dd(count($attendance));
+
+             if( count($attendance) !== $totalStudents){
+                if(count($attendance) > 0){
+                    $studentId = key($attendance);
+                    $studentName = Students::find($studentId)->name;
+                    $fail("Attendance for $studentName is required.");
+                }else{
+                    $fail(':attribute must have a value for each students');
+                }
+            
+           
+        }else{
+             foreach ($attendance as $value) {
+            if (empty($value)) {
+                $fail('The value must be either "present" or "absent".');
+                
+            }
         }
-        if(!$value){
-            $fail('The :attribute must be required');
         }
-        
+    }else{
+            $fail(':attribute is not avalid json string');
+        }
+          
     }
 }

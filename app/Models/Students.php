@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\HomeWork;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Students extends Model
 {
@@ -24,6 +25,10 @@ class Students extends Model
        
     ];
 
+
+    public function homework(){
+        return $this->hasOne(HomeWork::class, 'student_id');
+    }
    
     /**
      * The attributes that should be hidden for serialization.

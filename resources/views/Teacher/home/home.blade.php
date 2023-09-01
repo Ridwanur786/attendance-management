@@ -13,8 +13,8 @@
                 </div>
                 <div class="card-body">
                     <div class="logout_btn my-5">
-                        <form id="logout-form" action="{{ route('teacher.logout.submit') }}"
-                            method="POST" style="display: none;">
+                        <form id="logout-form" action="{{ route('teacher.logout.submit') }}" method="POST"
+                            style="display: none;">
                             @csrf
                         </form>
 
@@ -28,11 +28,17 @@
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
                                 type="button" role="tab" aria-controls="profile" aria-selected="false">Home
-                                work</button>
+                                work report</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="update-tab" data-bs-toggle="tab" data-bs-target="#update"
+                                type="button" role="tab" aria-controls="update" aria-selected="false">Home
+                                work Update</button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="messages-tab" data-bs-toggle="tab" data-bs-target="#messages"
-                                type="button" role="tab" aria-controls="messages" aria-selected="false">Report</button>
+                                type="button" role="tab" aria-controls="messages" aria-selected="false">Attendance
+                                Report</button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="settings-tab" data-bs-toggle="tab" data-bs-target="#official"
@@ -46,39 +52,32 @@
                             <ul class="list-group list-group-horizontal-sm my-5">
                                 <li class="list-group-item">
 
-                                    <a
-                                        href="{{ route('teacher.class-attendance', 'play') }}">
+                                    <a href="{{ route('teacher.class-attendance', 'play') }}">
                                         Play
                                     </a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a
-                                        href="{{ route('teacher.class-attendance', 'classOne') }}">
+                                    <a href="{{ route('teacher.class-attendance', 'classOne') }}">
                                         Class One </a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a
-                                        href="{{ route('teacher.class-attendance', 'classTwo') }}">
+                                    <a href="{{ route('teacher.class-attendance', 'classTwo') }}">
                                         Class Two </a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a
-                                        href="{{ route('teacher.class-attendance', 'classThree') }}">
+                                    <a href="{{ route('teacher.class-attendance', 'classThree') }}">
                                         Class Three </a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a
-                                        href="{{ route('teacher.class-attendance', 'classFour') }}">
+                                    <a href="{{ route('teacher.class-attendance', 'classFour') }}">
                                         Class Four </a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a
-                                        href="{{ route('teacher.class-attendance', 'classFive') }}">
+                                    <a href="{{ route('teacher.class-attendance', 'classFive') }}">
                                         Class Five </a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a
-                                        href="{{ route('teacher.class-attendance', 'classSix') }}">
+                                    <a href="{{ route('teacher.class-attendance', 'classSix') }}">
                                         Class Six </a>
                                 </li>
 
@@ -91,7 +90,43 @@
                                 <li class="list-group-item">A third item</li>
                             </ul>
                         </div>
-                        <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">thisis update
+                        <div class="tab-pane" id="update" role="tabpanel" aria-labelledby="update-tab">
+                            <ul class="list-group list-group-horizontal-sm my-5">
+                                <li class="list-group-item">
+
+                                    <a href="{{ route('teacher.homework', 'play') }}">
+                                        Play
+                                    </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{ route('teacher.homework', 'classOne') }}">
+                                        Class One </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{ route('teacher.homework', 'classTwo') }}">
+                                        Class Two </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{ route('teacher.homework', 'classThree') }}">
+                                        Class Three </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{ route('teacher.homework', 'classFour') }}">
+                                        Class Four </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{ route('teacher.homework', 'classFive') }}">
+                                        Class Five </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{ route('teacher.homework', 'classSix') }}">
+                                        Class Six </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">this is
+                            update
                         </div>
                         <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">this is
                             report</div>

@@ -32,9 +32,11 @@ Route::prefix('student')->middleware(['student'])->name('student.')->group(funct
 Route::prefix('teacher')->name('teacher.')->group(function(){
 
     Route::middleware(['teacher'])->group(function(){
-        Route::get('/home', [TeachersAuthController::class, 'home'])->name('home');
-    Route::get('/attendance/{class}', [TeacherController::class, 'attendanceForm'])->name('class-attendance');
-    Route::post('/attendance/{class}', [TeacherController::class, 'submitAttendance'])->name('submit');
+        Route::get('/home', [TeachersAuthController::class,'home'])->name('home');
+    Route::get('/attendance/{class}',[TeacherController::class,'attendanceForm'])->name('class-attendance');
+    Route::post('/attendance/{class}',[TeacherController::class,'submitAttendance'])->name('submit');
+    Route::get('/homework/{class}', [TeacherController::class,'homeworkReport'])->name('homework');
+    Route::post('/homework/{class}/{studentId}', [TeacherController::class,'approveHomework'])->name('update-homework');
     Route::post('/logout', [TeachersAuthController::class, 'logout'])->name('logout.submit');
     });
 

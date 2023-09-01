@@ -23,15 +23,9 @@ class StudentsFactory extends Factory
             'role' => 'student', // Assuming 'role' should always be 'student'
             'class' => $this->faker->randomElement(['play', 'classOne', 'classTwo', 'classThree', 'classFour', 'classFive', 'classSix']),
             'password' => Hash::make('12345678'),
-            'attendance' => [
-                'classOne' => $this->faker->randomElement(['present', 'absent']),
-                'classTwo' => $this->faker->randomElement(['present', 'absent']),
-                'classThree' => $this->faker->randomElement(['present', 'absent']),
-                'classFour' => $this->faker->randomElement(['present', 'absent']),
-                'classFive' => $this->faker->randomElement(['present', 'absent']),
-                'classSix' => $this->faker->randomElement(['present', 'absent']),
-                // ... Define attendance status for other classes
-            ],
+            'attendance' => $this->faker->randomElement(['present', 'absent']),
+               
+           
         ];
     }
 }
