@@ -1,4 +1,5 @@
 [build]
   runtime = "php"
   build = "composer install --no-interaction --prefer-dist && php artisan optimize"
+  root = "E:\\Development\\htdocs\\School"
 
