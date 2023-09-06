@@ -5,9 +5,10 @@
 
 [deploy]
   numReplicas = 1
-  startCommand = "php artisan serve"
+  startCommand = "apache2-foreground"  # This is a common command for Apache on some platforms
   restartPolicyType = "ON_FAILURE"
   restartPolicyMaxRetries = 10
+
 
 [watch]
   paths = ["E:\\Development\\htdocs\\School"]
