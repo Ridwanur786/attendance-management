@@ -1,6 +1,5 @@
 [build]
 builder = "NIXPACKS"
-nixpacksPlan = {"repo"="Ridwanur786/attendance-management"}
 watchPatterns = ["attendance-management"]
 
 [deploy]
