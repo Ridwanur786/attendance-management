@@ -1,7 +1,7 @@
 [build]
 builder = "NIXPACKS"
 buildCommand="composer install && php artisan config:clear && php artisan optimize && php artisan migrate --force"
-watchPatterns = ["attendance-management"]
+watchPatterns = ["/"]
 
 [deploy]
 numReplicas = 1
