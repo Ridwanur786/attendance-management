@@ -1,9 +1,10 @@
 [build]
 builder = "NIXPACKS"
+buildCommand="composer install && php artisan config:clear && php artisan optimize && php artisan migrate --force"
 watchPatterns = ["attendance-management"]
 
 [deploy]
 numReplicas = 1
-startCommand = "php artisan migrate --force"
+startCommand="php artisan serve"
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 10
