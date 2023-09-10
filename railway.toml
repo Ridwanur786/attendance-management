@@ -1,6 +1,6 @@
 [build]
 builder = "NIXPACKS"
-buildCommand="composer install && php artisan config:clear && php artisan optimize && php artisan migrate --force"
+buildCommand="composer install --no-interaction --prefer-dist && php artisan config:clear && php artisan optimize && php artisan migrate --force"
 watchPatterns = ["/"]
 
 [deploy]
