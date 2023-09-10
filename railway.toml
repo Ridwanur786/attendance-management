@@ -1,11 +1,12 @@
 [build]
 builder = "NIXPACKS"
-buildCommand="RUN composer install --no-interaction --prefer-dist && php artisan config:clear && php artisan optimize && php artisan migrate --force 2>&1 | tee /var/www/html/composer.log
-"
-watchPatterns = ["/"]
+buildCommand = '''
+  RUN composer install --no-interaction --prefer-dist && php artisan config:clear && php artisan optimize && php artisan migrate --force 2>&1 | tee /var/www/html/composer.log
+'''
 
 [deploy]
 numReplicas = 1
-startCommand="php artisan serve"
+startCommand = "php artisan serve"
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 10
+
