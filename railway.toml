@@ -6,7 +6,7 @@ buildCommand = '''
 
 [deploy]
 numReplicas = 1
-startCommand = "php artisan serve"
+startCommand = '''php artisan migrate --force && php artisan db:seed && php artisan config:clear && php artisan serve'''
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 10
 
