@@ -1,20 +1,37 @@
-version: '3.8'
+version: "3.8"
 
 services:
   database:
     image: mysql:5.7
     ports:
-      - 3306:3306
+      - 33306:3306
     environment:
-      - MYSQL_DATABASE= school
-      - MYSQL_USER= root
-      - MYSQL_PASSWORD= sync@7867
-      - MYSQL_ROOT_PASSWORD= sync@7867
+      - MYSQL_DATABASE=school
+      - MYSQL_ROOT_PASSWORD=sync@7867
     volumes:
-      - db-data: /var/lib/mysql  
+      - type: volume
+        source: db-data
+        target: /var/lib/mysql  
 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8089:80" # Adjust the port as needed
+    environment:
+      - PMA_HOST=database
+      - PMA_PORT=3306
+      - PMA_USER=root
+      - PMA_PASSWORD=sync@7867
+    depends_on:
+      - database
 
+#redis database services
 
+  redis:
+      image: redis:alpine
+      command: redis-server --appendonly yes --requirepass "null"
+      ports:
+          - 6379:6379  
 
 volumes:
   db-data: ~
