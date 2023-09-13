@@ -1,6 +1,25 @@
 version: "3.8"
 
 services:
+  php:
+     build: 
+          context: .
+          target: php-apache
+          args:
+             - APP_ENV =${APP_ENV}
+     environment:
+             - APP_ENV=${APP_ENV}        
+             - CONTAINER_ROLE=app
+     working_dir: /var/www
+     volumes: 
+          - ./:/var/www
+     ports:
+          - 8000:8000
+
+     depends_on:
+          - database
+          - redis
+
   database:
     image: mysql:5.7
     ports:
@@ -24,6 +43,7 @@ services:
       - PMA_PASSWORD=sync@7867
     depends_on:
       - database
+      - redis
 
 #redis database services
 
