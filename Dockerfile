@@ -2,9 +2,10 @@ FROM php:8.1.19-apache as php-apache
 
 
 #Install system dependencies and PHP extensions
-RUN apt-get update -y && apt-get install -y libicu-dev libmariadb-dev libpng-dev libjpeg-dev libfreetype6-dev zip unzip wget \
-&&  docker-php-ext-configure gd --with-freetype --with-jpeg && \
-docker-php-ext-install gd pdo pdo_mysql
+RUN apt-get update -y && apt-get install -y libicu-dev libmariadb-dev libpng-dev libjpeg-dev libfreetype6-dev zip unzip wget default-mysql-client && \
+    docker-php-ext-configure gd --with-freetype --with-jpeg && \
+    docker-php-ext-install gd pdo pdo_mysql
+
 
 WORKDIR /var/www
 COPY . .
