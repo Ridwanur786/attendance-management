@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\HomeWork;
 use App\Models\Students;
 use Illuminate\Database\Seeder;
+use Database\Seeders\HomeWorkSeeder;
 use Database\Seeders\StudentsSeeder;
 use Database\Seeders\TeachersSeeder;
 
@@ -27,7 +28,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             TeachersSeeder::class,
             StudentsSeeder::class,
-            HomeWork::class
+            HomeWorkSeeder::class
         ]);
     }
 }

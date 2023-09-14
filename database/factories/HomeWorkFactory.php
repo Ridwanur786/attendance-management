@@ -21,6 +21,7 @@ class HomeWorkFactory extends Factory
         return [
             'student_id' => Students::inRandomOrder()->first()->id,
             'status' => $this->faker->randomElement(['pending', 'approved', 'N/A']),
+           
         ];
     }
 

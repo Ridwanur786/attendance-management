@@ -14,7 +14,7 @@ class HomeWorkSeeder extends Seeder
      */
     public function run(): void
     {
-        HomeWork::factory(10)->create();
+        HomeWork::factory(30)->create();
 
     }
 }

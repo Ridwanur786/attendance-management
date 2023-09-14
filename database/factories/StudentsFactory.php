@@ -23,7 +23,7 @@ class StudentsFactory extends Factory
             'role' => 'student', // Assuming 'role' should always be 'student'
             'class' => $this->faker->randomElement(['play', 'classOne', 'classTwo', 'classThree', 'classFour', 'classFive', 'classSix']),
             'password' => Hash::make('12345678'),
-            'attendance' => $this->faker->randomElement(['present', 'absent']),
+           
                
            
         ];

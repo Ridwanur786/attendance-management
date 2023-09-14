@@ -13,7 +13,7 @@ class StudentsSeeder extends Seeder
      */
     public function run(): void
     {
-        Students::factory(10)->create();
+        Students::factory(30)->create();
 
         // foreach ($students as $student) {
         //     var_dump($student->toArray()); // Dump the student data to inspect
