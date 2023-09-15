@@ -59,3 +59,9 @@
     color: black;
     font-size: 20px;
 }
+
+.card-body > .table-responsive > .table{
+    background-color: black;
+    box-shadow: none;
+
+}

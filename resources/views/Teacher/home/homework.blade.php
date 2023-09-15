@@ -12,10 +12,10 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         @if (session('success'))
-                            <div class="alert alert-success">{{session('success')}}</div>
+                        <div class="alert alert-success">{{session('success')}}</div>
                         @endif
                         @if (session('error'))
-                            <div class="alert alert-warning">{{session('error')}}</div>
+                        <div class="alert alert-warning">{{session('error')}}</div>
                         @endif
                         <table class="table table-sm table-striped table-hover table-bordered">
                             <thead>
@@ -29,29 +29,31 @@
                             </thead>
                             <tbody>
                                 @foreach($students as $student)
-                                    <tr>
-                                        <td>{{ $student->id }}</td>
-                                        <td>{{ $student->name }}</td>
-                                        <td>
+                                <tr>
+                                    <td>{{ $student->id }}</td>
+                                    <td>{{ $student->name }}</td>
+                                    <td>
 
 
-                                            {{-- Now you can loop through the attendance array --}}
-                                            @foreach($student->attendance as $attendanceValue)
-                                                {{ $attendanceValue }}<br>
-                                            @endforeach
-                                        </td>
-                                        <td>{{ $student->homework->status ?? 'N/A' }}
-                                        </td>
-                                        <td>
-                                              <form
-                                                    action="{{ route('teacher.update-homework', ['class' => $class, 'studentId' => $student->id]) }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    <button type="submit" class="btn btn-sm btn-block btn-outline-success">Approve Homework</button>
-                                                </form>
-                                          
-                                        </td>
-                                    </tr>
+                                        {{-- Now you can loop through the attendance array --}}
+                                        @foreach($student->attendance as $attendanceValue)
+                                        {{ $attendanceValue }}<br>
+                                        @endforeach
+                                    </td>
+                                    <td>{{ $student->homework->status ?? 'N/A' }}
+                                    </td>
+                                    <td>
+                                        <form
+                                            action="{{ route('teacher.update-homework', ['class' => $class, 'studentId' => $student->id]) }}"
+                                            method="POST">
+                                            @csrf
+                                            <button type="submit"
+                                                class="btn btn-sm btn-block btn-outline-success">Approve
+                                                Homework</button>
+                                        </form>
+
+                                    </td>
+                                </tr>
                                 @endforeach
                             </tbody>
 
