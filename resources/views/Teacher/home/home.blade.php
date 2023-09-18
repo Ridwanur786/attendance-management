@@ -52,32 +52,32 @@
                             <ul class="list-group list-group-horizontal-sm my-5">
                                 <li class="list-group-item">
 
-                                    <a href="{{ route('teacher.class-attendance', 'play') }}">
+                                    <a href="{{ route('teacher.report-attendance', 'play') }}">
                                         Play
                                     </a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="{{ route('teacher.class-attendance', 'classOne') }}">
+                                    <a href="{{ route('teacher.report-attendance', 'classOne') }}">
                                         Class One </a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="{{ route('teacher.class-attendance', 'classTwo') }}">
+                                    <a href="{{ route('teacher.report-attendance', 'classTwo') }}">
                                         Class Two </a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="{{ route('teacher.class-attendance', 'classThree') }}">
+                                    <a href="{{ route('teacher.report-attendance', 'classThree') }}">
                                         Class Three </a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="{{ route('teacher.class-attendance', 'classFour') }}">
+                                    <a href="{{ route('teacher.report-attendance', 'classFour') }}">
                                         Class Four </a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="{{ route('teacher.class-attendance', 'classFive') }}">
+                                    <a href="{{ route('teacher.report-attendance', 'classFive') }}">
                                         Class Five </a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="{{ route('teacher.class-attendance', 'classSix') }}">
+                                    <a href="{{ route('teacher.report-attendance', 'classSix') }}">
                                         Class Six </a>
                                 </li>
 
@@ -125,8 +125,42 @@
 
                             </ul>
                         </div>
-                        <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">this is
-                            update
+                        <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
+                            div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <ul class="list-group list-group-horizontal-sm my-5">
+                                <li class="list-group-item">
+
+                                    <a href="{{ route('teacher.report-attendance', 'play') }}">
+                                        Play
+                                    </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{ route('teacher.report-attendance', 'classOne') }}">
+                                        Class One </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{ route('teacher.report-attendance', 'classTwo') }}">
+                                        Class Two </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{ route('teacher.report-attendance', 'classThree') }}">
+                                        Class Three </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{ route('teacher.report-attendance', 'classFour') }}">
+                                        Class Four </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{ route('teacher.report-attendance', 'classFive') }}">
+                                        Class Five </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{ route('teacher.report-attendance', 'classSix') }}">
+                                        Class Six </a>
+                                </li>
+
+                            </ul>
+                        </div>
                         </div>
                         <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">this is
                             report</div>

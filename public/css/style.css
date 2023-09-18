@@ -50,18 +50,72 @@
     box-shadow: none;
 }
 
-.tab-content > ul > li .list-group-item{
-    background: none;
+.tab-content {
+    background-color: rgba(242, 237, 243, 0.205) !important;
+    border: 2px solid rgba(66, 49, 49, 0.726);
+    margin-top:20px;
+    border-radius: 0%;
+    padding-left:50px;
+   
 }
 
-.list-group-item > a {
+.tab-pane ul li {
+    background: transparent !important;  
+
+}
+
+.tab-pane ul li a{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    color: rgba(211, 199, 199, 0.664);
     text-decoration: none;
-    color: black;
-    font-size: 20px;
+    font-size: 18px;
+    padding: 5px;
+   ;
 }
 
-.card-body > .table-responsive > .table{
-    background-color: black;
-    box-shadow: none;
-
+.tab-pane ul li:hover{
+    background-color: rgb(71, 59, 59);
+    border: none;
+    border-color: none;
+    transition: all 1s ease-in-out;
 }
+
+
+
+ table tr td, table tr th{
+    background-color: rgba(242, 237, 243, 0.205) !important;
+    border: 2px solid rgba(66, 49, 49, 0.726);
+    
+}
+table  tr th{
+    font-size:20px;
+    color: whitesmoke;
+    text-align: center;
+}
+
+table tr td{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+   
+}
+
+.btn-outline-success{
+    border: 1px solid whitesmoke;
+    border-radius: 0%;
+    padding:5px;
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(211, 199, 199, 0.664);
+}
+.btn-outline-success:hover{
+    background-color: rgb(122, 109, 109);
+    border: none;
+    border-color: none;
+}
+
+
+  
+

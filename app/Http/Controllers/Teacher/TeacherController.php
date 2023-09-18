@@ -21,6 +21,11 @@ class TeacherController extends Controller
     $students = Students::where('class', $class)->get();
     return view('Teacher.attendance.attendance-form', compact('students', 'class'));
 }
+    public function attendanceReport($class)
+{
+    $students = Students::where('class', $class)->get();
+    return view('Teacher.attendance.attendance-report', compact('students', 'class'));
+}
 
 
  
