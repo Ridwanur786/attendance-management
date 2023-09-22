@@ -8,6 +8,7 @@ use App\Models\Students;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
+use App\Models\AttendanceReport;
 use Illuminate\Support\Facades\Session;
 use App\Rules\AttendanceValidationRules;
 use Illuminate\Support\Facades\Validator;
@@ -25,6 +26,32 @@ class TeacherController extends Controller
 {
     $students = Students::where('class', $class)->get();
     return view('Teacher.attendance.attendance-report', compact('students', 'class'));
+}
+
+public function updateReport($class,$studentId){
+    
+    $student = Students::find($studentId);
+
+    if (!$student) {
+        return redirect()->back()->with('error', 'Student not found.');
+    }
+
+    // Debug to see the value of $student and $class
+    //dd($student, $class);
+      // Find the corresponding home_work record
+    $report = AttendanceReport::where('report_id', $student->id)->first();
+    var_dump($report);
+
+    if ($report) {
+        if ($report->status === "late" || $report->status === "N/A") {
+            $report->update(['status' => 'in time']);
+            return redirect()->route('teacher.report-attendane', $class)->with('success', 'Attendance Changed');
+        } else {
+            return redirect()->route('teacher.report-attendance', $class)->with('error', 'Attendance status is not late status is not pending.');
+        }
+    } else {
+        return redirect()->route('teacher.report-attendance', $class)->with('error', 'Status not found for this student.');
+    }
 }
 
 

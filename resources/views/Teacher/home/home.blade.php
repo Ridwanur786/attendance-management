@@ -126,7 +126,7 @@
                             </ul>
                         </div>
                         <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
-                            div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <ul class="list-group list-group-horizontal-sm my-5">
                                 <li class="list-group-item">
 

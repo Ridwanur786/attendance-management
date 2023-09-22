@@ -40,16 +40,16 @@
                                         {{ $attendanceValue }}<br>
                                         @endforeach
                                     </td>
-                                    <td>{{ $student->homework->status ?? 'N/A' }}
+                                    <td>{{ $student->attendance_reports->status ?? 'late' }}
                                     </td>
                                     <td>
                                         <form
-                                            action="{{ route('teacher.update-homework', ['class' => $class, 'studentId' => $student->id]) }}"
+                                            action="{{ route('teacher.update-attendance', ['class' => $class, 'studentId' => $student->id]) }}"
                                             method="POST">
                                             @csrf
                                             <button type="submit"
                                                 class="btn btn-sm btn-block btn-outline-success">Approve
-                                                Homework</button>
+                                                Attendance</button>
                                         </form>
 
                                     </td>

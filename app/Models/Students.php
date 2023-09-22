@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\HomeWork;
+use App\Models\AttendanceReport;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -28,6 +29,10 @@ class Students extends Model
 
     public function homework(){
         return $this->hasOne(HomeWork::class, 'student_id');
+    }
+
+    public function attendance_reports(){
+        return $this->hasOne(AttendanceReport::class, 'report_id');
     }
    
     /**
