@@ -40,7 +40,7 @@ public function updateReport($class,$studentId){
     //dd($student, $class);
       // Find the corresponding home_work record
     $report = AttendanceReport::where('report_id', $student->id)->first();
-    var_dump($report);
+    //var_dump($report);
 
     if ($report) {
         if ($report->status === "late" || $report->status === "N/A") {

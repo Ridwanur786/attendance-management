@@ -31,7 +31,7 @@ class Students extends Model
         return $this->hasOne(HomeWork::class, 'student_id');
     }
 
-    public function attendance_reports(){
+    public function attendence_reports(){
         return $this->hasOne(AttendanceReport::class, 'report_id');
     }
    
