@@ -52,32 +52,32 @@
                             <ul class="list-group list-group-horizontal-sm my-5">
                                 <li class="list-group-item">
 
-                                    <a href="{{ route('teacher.report-attendance', 'play') }}">
+                                    <a href="{{ route('teacher.class-attendance', 'play') }}">
                                         Play
                                     </a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="{{ route('teacher.report-attendance', 'classOne') }}">
+                                    <a href="{{ route('teacher.class-attendance', 'classOne') }}">
                                         Class One </a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="{{ route('teacher.report-attendance', 'classTwo') }}">
+                                    <a href="{{ route('teacher.class-attendance', 'classTwo') }}">
                                         Class Two </a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="{{ route('teacher.report-attendance', 'classThree') }}">
+                                    <a href="{{ route('teacher.class-attendance', 'classThree') }}">
                                         Class Three </a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="{{ route('teacher.report-attendance', 'classFour') }}">
+                                    <a href="{{ route('teacher.class-attendance', 'classFour') }}">
                                         Class Four </a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="{{ route('teacher.report-attendance', 'classFive') }}">
+                                    <a href="{{ route('teacher.class-attendance', 'classFive') }}">
                                         Class Five </a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="{{ route('teacher.report-attendance', 'classSix') }}">
+                                    <a href="{{ route('teacher.class-attendance', 'classSix') }}">
                                         Class Six </a>
                                 </li>
 

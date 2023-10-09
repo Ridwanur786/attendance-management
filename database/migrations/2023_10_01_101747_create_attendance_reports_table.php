@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('students', function (Blueprint $table) {
+        Schema::create('attendance_reports', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->string('email')->unique();
-            $table->string('role')->nullable();
-            $table->string('password')->nullable();
-            $table->string('class')->nullable();
-            $table->json('attendance')->nullable();
+            $table->unsignedBigInteger('report_id');
+            $table->foreign('report_id')->references('id')->on('students')->onDelete('cascade');
+            $table->string('status')->default('late'); // You can customize this status as needed
             $table->timestamps();
         });
     }
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('students');
+        Schema::dropIfExists('attendance_reports');
     }
 };

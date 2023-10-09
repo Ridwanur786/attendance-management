@@ -22,7 +22,8 @@ class StudentsFactory extends Factory
             'email' => $this->faker->unique()->safeEmail(),
             'role' => 'student', // Assuming 'role' should always be 'student'
             'class' => $this->faker->randomElement(['play', 'classOne', 'classTwo', 'classThree', 'classFour', 'classFive', 'classSix']),
-            'password' => Hash::make('12345678'),
+            'attendance'=> json_encode(['classA' => 'present', 'classB' => 'absent', 'classC' => 'N/A']),
+            'password' => Hash::make('12345678')
            
                
            

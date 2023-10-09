@@ -7,8 +7,9 @@ use App\Models\HomeWork;
 use App\Models\Students;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use App\Http\Controllers\Controller;
 use App\Models\AttendanceReport;
+use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use App\Rules\AttendanceValidationRules;
 use Illuminate\Support\Facades\Validator;
@@ -17,16 +18,24 @@ class TeacherController extends Controller
 {
 
 
+    //Viewing Attendance Form
+
     public function attendanceForm($class)
 {
     $students = Students::where('class', $class)->get();
+    //Log::info('Students: ', ['students' => $students]); // Add this line
     return view('Teacher.attendance.attendance-form', compact('students', 'class'));
 }
+
+// View Classwise attendance Report
     public function attendanceReport($class)
 {
     $students = Students::where('class', $class)->get();
     return view('Teacher.attendance.attendance-report', compact('students', 'class'));
 }
+
+
+//Update the submitted attendance 
 
 public function updateReport($class,$studentId){
     
@@ -45,16 +54,16 @@ public function updateReport($class,$studentId){
     if ($report) {
         if ($report->status === "late" || $report->status === "N/A") {
             $report->update(['status' => 'in time']);
-            return redirect()->route('teacher.report-attendane', $class)->with('success', 'Attendance Changed');
+            return redirect()->route('teacher.report-attendance', $class)->with('success', 'Attendance Changed');
         } else {
-            return redirect()->route('teacher.report-attendance', $class)->with('error', 'Attendance status is not late status is not pending.');
+            return redirect()->route('teacher.report-attendance', $class)->with('error', 'Attendance status is not late or pending.');
         }
     } else {
         return redirect()->route('teacher.report-attendance', $class)->with('error', 'Status not found for this student.');
     }
 }
 
-
+//submit attendance for all classes
  
 public function submitAttendance(Request $request, $class)
 {
@@ -100,6 +109,7 @@ public function submitAttendance(Request $request, $class)
 //     return redirect()->route('teacher.class-attendance', $class)->with('success', 'Attendance submitted successfully.');
 // }
 
+//view homework report
 
  public function homeworkReport($class){
 
@@ -109,6 +119,7 @@ public function submitAttendance(Request $request, $class)
 
  }
 
+ //Homework update
 
  public function approveHomework($class,$studentId){
 

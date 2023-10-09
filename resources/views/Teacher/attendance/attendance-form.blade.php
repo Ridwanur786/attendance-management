@@ -29,6 +29,8 @@
                     <form action="{{ route('teacher.submit', $class) }}" method="post">
                         @csrf
                         <input type="hidden" name="class" value="{{$class}}">
+                        @if (is_array($students) || is_object($students))
+                            
                         @foreach($students as $student)
                         <div class="form-group">
                          <label for="{{ $student->name }}" class="form-check-label">
@@ -60,6 +62,9 @@
                     </div>
                        
                     @endforeach
+                    @else
+                        <div class="alert alert-warning">no attendance found</div>
+                    @endif
                     
                        <button type="submit" class="btn btn-sm btn-block btn-outline-primary">Submit Attendance</button>
                     </form>

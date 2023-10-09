@@ -19,8 +19,9 @@ class AttendanceReportFactory extends Factory
     public function definition(): array
     {
         return [
-            'report_id' => AttendanceReport::inRandomOrder()->first()->id,
-            'status' => $this->faker->randomElement(['late', 'in time', 'N/A']),
+            'report_id' => Students::inRandomOrder()->first()->id,
+
+            'status' => $this->faker->randomElement(['late', 'in time', 'N/A'])
            
         ];
     }
@@ -28,7 +29,8 @@ class AttendanceReportFactory extends Factory
 
     public function configure()
     {
-        return $this->afterCreating(function (AttendanceReport $attendanceReport) {
+       
+       return  $this->afterCreating(function (AttendanceReport $attendanceReport) {
             $student = Students::inRandomOrder()->first(); // Get a random student
             $attendanceReport->attendStudent()->associate($student); // Associate the student with the homework
             $attendanceReport->save();

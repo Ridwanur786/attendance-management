@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\AttendanceReport;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Students;
 use Illuminate\Database\Seeder;
+use App\Models\AttendanceReport;
+
 
 class AttendanceReportSeeder extends Seeder
 {
@@ -13,6 +14,9 @@ class AttendanceReportSeeder extends Seeder
      */
     public function run(): void
     {
-        AttendanceReport::factory(30)->create();
+        
+            AttendanceReport::factory(30)->create();
+        
+        
     }
 }

@@ -26,14 +26,14 @@ class Students extends Model
        
     ];
 
-
+    public function attendance_reports(){
+        return $this->hasOne(AttendanceReport::class,'report_id');
+    }
     public function homework(){
-        return $this->hasOne(HomeWork::class, 'student_id');
+        return $this->hasOne(HomeWork::class,'student_id');
     }
 
-    public function attendence_reports(){
-        return $this->hasOne(AttendanceReport::class, 'report_id');
-    }
+    
    
     /**
      * The attributes that should be hidden for serialization.

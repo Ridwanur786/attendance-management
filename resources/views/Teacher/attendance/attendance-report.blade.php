@@ -6,9 +6,9 @@
         <div class="col-sm-12">
             <div class="card justify-content-center d-flex my-5">
                 <div class="card-header">
-                    <h4 class="text-center">Home work Report - {{ $class }} </h4>
+                    <h4 class="text-center">Attendance Report - {{ $class }} </h4>
                 </div>
-                <div class="card-title text-center"> Home work Submission: {{ $class }} </div>
+                <div class="card-title text-center"> Attendance Report: {{ $class }} </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         @if (session('success'))
@@ -34,11 +34,18 @@
                                     <td>{{ $student->name }}</td>
                                     <td>
 
-
-                                        {{-- Now you can loop through the attendance array --}}
-                                        @foreach($student->attendance as $attendanceValue)
-                                        {{ $attendanceValue }}<br>
-                                        @endforeach
+                    
+                                        @php
+                                        $attendanceData = json_decode($student->attendance, true);
+                                        @endphp
+                                    
+                                        @if (is_null($attendanceData))
+                                            <p class="alert alert-warning">No data found</p>
+                                        @else
+                                        {{ $attendanceData[array_rand($attendanceData)] }}
+                                        @endif
+                               
+                                       
                                     </td>
                                     <td>{{ $student->attendance_reports->status ?? 'late' }}
                                     </td>

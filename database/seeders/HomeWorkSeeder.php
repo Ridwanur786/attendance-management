@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\HomeWork;
-use App\Models\Students;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 

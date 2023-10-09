@@ -14,6 +14,6 @@ class AttendanceReport extends Model
     protected $fillable = ['report_id', 'status'];
 
     public function attendStudent(){
-        return $this->belongsTo(Students::class);
+        return $this->belongsTo(Students::class,'report_id');
     }
 }

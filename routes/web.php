@@ -33,8 +33,8 @@ Route::prefix('teacher')->name('teacher.')->group(function(){
 
     Route::middleware(['teacher'])->group(function(){
     Route::get('/home',[TeachersAuthController::class,'home'])->name('home');
-    Route::get('/attendance/{class}',[TeacherController::class,'attendanceForm'])->name('class-attendance');
-    Route::get('/attendance/{class}',[TeacherController::class,'attendanceReport'])->name('report-attendance');
+    Route::get('/attendance/form/{class}',[TeacherController::class,'attendanceForm'])->name('class-attendance');
+    Route::get('/attendance/report/{class}',[TeacherController::class,'attendanceReport'])->name('report-attendance');
     Route::post('/attendance/{class}/{studentId}',[TeacherController::class,'updateReport'])->name('update-attendance');
     Route::post('/attendance/{class}',[TeacherController::class,'submitAttendance'])->name('submit');
     Route::get('/homework/{class}',[TeacherController::class,'homeworkReport'])->name('homework');

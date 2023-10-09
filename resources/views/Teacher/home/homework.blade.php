@@ -36,9 +36,9 @@
 
 
                                         {{-- Now you can loop through the attendance array --}}
-                                        @foreach($student->attendance as $attendanceValue)
-                                        {{ $attendanceValue }}<br>
-                                        @endforeach
+                                       
+                                        {{ $student->attendance}}<br>
+                                      
                                     </td>
                                     <td>{{ $student->homework->status ?? 'N/A' }}
                                     </td>
