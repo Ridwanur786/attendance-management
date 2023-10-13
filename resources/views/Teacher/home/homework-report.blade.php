@@ -37,7 +37,15 @@
 
                                         {{-- Now you can loop through the attendance array --}}
                                    
-                                        {{  $student->attendance }}<br>
+                                        @php
+                                        $attendanceData = json_decode($student->attendance, true);
+                                        @endphp
+                                    
+                                        @if (is_null($attendanceData))
+                                            <p class="alert alert-warning">No data found</p>
+                                        @else
+                                        {{ $attendanceData[array_rand($attendanceData)] }}
+                                        @endif
                                       
                                     </td>
                                     <td>{{ $student->homework->status ?? 'N/A' }}
